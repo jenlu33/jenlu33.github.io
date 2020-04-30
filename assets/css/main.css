@@ -2600,6 +2600,10 @@ ul.icons {
 				font-size: 1.5em;
 			}
 
+.icons.about {
+	margin: 0 20%;
+}
+
 .icon {
 		text-decoration: none;
 		border-bottom: none;
