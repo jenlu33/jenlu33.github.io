@@ -3083,12 +3083,14 @@ ul.icons {
 			}
 
 		#header:after {
-			-moz-transition: opacity 1s ease;
-			-webkit-transition: opacity 1s ease;
-			-ms-transition: opacity 1s ease;
+			-moz-transition: opacity 0.8s ease;
+			-webkit-transition: opacity 0.8s ease;
+			-ms-transition: opacity 0.8s ease;
 			transition: opacity 1s ease;
 			background-color: rgb(216, 176, 176);
-			/* background-image: url("../../images/yu-siang-teo-EBoY43hgTo4-unsplash.jpg"); */
+			background-image: url("../../images/yu-siang-teo-EBoY43hgTo4-unsplash.jpg");
+			background-position: top left;
+			object-fit: cover;
 			content: '';
 			height: 100%;
 			left: 0;
