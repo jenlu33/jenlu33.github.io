@@ -3358,6 +3358,13 @@ ul.icons {
 				text-align: center;
 			}
 
+		/* Profile Image */
+
+			.image.fit.prof {
+				width: 60vw;
+				margin: 0 auto;
+			}
+
 	}
 
 /* Small */
