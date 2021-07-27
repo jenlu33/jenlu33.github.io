@@ -192,17 +192,48 @@ window.addEventListener("scroll", () => {
   }
 })
 
-projects.forEach(project => {
-  let show = false;
-  let title = project.firstElementChild;
-  let desc = project.lastElementChild;
+// Scroll projects into view on scroll
 
-  title.addEventListener("click", () => {
-    show = !show;
-    activatedProject(desc, show);
+//Debounce prevents browser from calling slideProject too many times which crashes site or causes unecessary slowdown
+const debounce = (func, wait = 10, immediate = true) => {
+  let timeout;
+    return function() {
+      let context = this, args = arguments;
+      let later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      let callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+}
+
+const projectImgs = document.querySelectorAll(".project-item > img");
+
+const slideProject = () => {
+  projects.forEach(img => {
+    const slideInAt = img.offsetParent.offsetTop + img.offsetTop + (img.offsetHeight / 2);
+
+    //leaves a bit on the bottom so the user can see it sliding away
+    const imageBottom = img.offsetParent.offsetTop + img.offsetTop + (img.offsetHeight * 0.8);
+
+    //slide in when image is scrolled halfway
+    const isHalfShown = slideInAt < window.scrollY + window.innerHeight;
+    //makes sure image is still in view while scrolling
+    const isNotScrolledPast = window.scrollY < imageBottom;
+
+    if (isHalfShown && isNotScrolledPast) {
+      img.classList.add('project-active');
+    } else {
+      img.classList.remove('project-active');
+    }
+    
   })
-})
+}
 
+window.addEventListener('scroll', debounce(slideProject));
 
 let isSkullActive = false;
 let isSunActive = false;

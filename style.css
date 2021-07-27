@@ -358,6 +358,23 @@ a {
   align-items: center;
   margin-bottom: 35px;
   flex: 1;
+  opacity: 0.1;
+  transition-duration: 0.7s;
+}
+
+.project-item:nth-child(odd) {
+  transform: translateX(-100%);
+  transition-duration: 1s;
+}
+.project-item:nth-child(even) {
+  transform: translateX(100%);
+  transition-duration: 1s;
+}
+
+.project-item.project-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition-duration: 0.7s;
 }
 
 .project-item > img {
@@ -365,10 +382,10 @@ a {
   border-radius: 5px;
 }
 .project-item > img:nth-child(odd) {
-  margin-right: 10px;
+  margin-right: 15px;
 }
 .project-item > img:nth-child(even) {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .project-item:nth-child(even) {
@@ -801,7 +818,17 @@ a {
     justify-content: center;
     width: 100%;
     height: 30vh;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
+    opacity: 1;
+  }
+
+  .project-item:nth-child(odd) {
+    transform: translateX(0);
+    transition-duration: 1s;
+  }
+  .project-item:nth-child(even) {
+    transform: translateX(0);
+    transition-duration: 1s;
   }
 
   .project-item > img:nth-child(even), .project-item > img:nth-child(odd) {
