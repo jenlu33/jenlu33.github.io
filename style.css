@@ -809,6 +809,10 @@ a {
     page-break-inside: avoid-column;
     break-inside: avoid-column;
 
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+
     margin: 20px 0;
   }
 
